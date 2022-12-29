@@ -11,15 +11,19 @@ refs.form.addEventListener('submit', onFormSubmit);
 refs.labelEmail.addEventListener('input', throttle(onFormAddEmail, 500));
 refs.labelMessage.addEventListener('input', throttle(onFormAddMessage, 500))
 
-populateFormData()
 
-
-function onFormSubmit(elem) {
+ function onFormSubmit(elem) {
     elem.preventDefault();
-    elem.target.reset();
-    localStorage.removeItem('email-value');
-    localStorage.removeItem('message-value');
+     
+     if (refs.labelEmail.value === '' || refs.labelMessage.value === '') {
 
+         alert('Будь ласка, заповніть всі поля');
+    
+     } else {      
+             elem.target.reset();
+             localStorage.removeItem('email-value');
+             localStorage.removeItem('message-value');
+     }
 }
 
 function onFormAddEmail(elem) {
