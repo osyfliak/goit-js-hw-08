@@ -11,6 +11,7 @@ refs.form.addEventListener('submit', onFormSubmit);
 refs.labelEmail.addEventListener('input', throttle(onFormAddEmail, 500));
 refs.labelMessage.addEventListener('input', throttle(onFormAddMessage, 500))
 
+populateFormData();
 
  function onFormSubmit(elem) {
     elem.preventDefault();
